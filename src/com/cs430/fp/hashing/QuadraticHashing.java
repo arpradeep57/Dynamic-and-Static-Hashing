@@ -13,7 +13,7 @@ public class QuadraticHashing<K, V> extends HashBase<K, V> {
 	}
 	
 	public static void main(String args[]) {
-		QuadraticHashing<Integer, String> hashTable = new QuadraticHashing<Integer, String>(10);
+		QuadraticHashing<Integer, String> hashTable = new QuadraticHashing<Integer, String>(10000000);
 
 		long startTime = System.currentTimeMillis();
 		hashTable.insert(3, "3");

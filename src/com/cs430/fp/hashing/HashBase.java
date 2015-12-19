@@ -23,7 +23,7 @@ public abstract class HashBase<K, V> {
 		}
 		if (key.equals(keys[index])) {
 			values[index] = value;
-			count++;
+			//count++;
 		} else if (keys[index] == null) {
 			keys[index] = key;
 			values[index] = value;

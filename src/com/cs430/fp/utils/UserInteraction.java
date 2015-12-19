@@ -30,21 +30,21 @@ public class UserInteraction {
 		int size = getTableSize();
 		displayMessage();
 		System.out.println("Please Enter user choice :");
-		int choice = scanInput();
+		int choice = (Integer) scanInput();
 		switch (choice) {
 		case 1:
 			System.out.println("Invoking Linear Hashing. ! Please wait ..");
-			LinearHashing<Integer, Integer> linearHashing = new LinearHashing<Integer, Integer>(size);
+			LinearHashing<Object, Object> linearHashing = new LinearHashing<Object, Object>(size);
 			invokeTest(linearHashing);
 			break;
 		case 2:
 			System.out.println("Invoking Quadratic Hashing. ! Please wait .. ");
-			QuadraticHashing<Integer, Integer> quadraticHashing = new QuadraticHashing<Integer, Integer>(size);
+			QuadraticHashing<Object, Object> quadraticHashing = new QuadraticHashing<Object, Object>(size);
 			invokeTest(quadraticHashing);
 			break;
 		case 3:
 			System.out.println("Invoking Double Hashing . ! Please wait ..");
-			DoubleHashing<Integer, Integer> doubleHashing = new DoubleHashing<Integer, Integer>(size);
+			DoubleHashing<Object, Object> doubleHashing = new DoubleHashing<Object, Object>(size);
 			invokeTest(doubleHashing);
 			break;
 		default:
@@ -55,25 +55,39 @@ public class UserInteraction {
 
 	public static int getTableSize() {
 		System.out.println("Please enter table size: ");
-		int tablesize = scanInput();
+		int tablesize = (Integer) scanInput();
 		return tablesize;
 	}
 
-	public static int scanInput() {
-		int choice = scanner.nextInt();
+	public static Object scanInput() {
+		Object choice = null;
+		try{
+			choice = scanner.next();
+			int temp = -1;
+			temp = Integer.parseInt((String) choice);
+			choice = temp;
+		} catch (NumberFormatException ume){
+			
+		}
 		return choice;
 	}
 
 	// *****************
-	public static void invokeTest(LinearHashing<Integer, Integer> hashing) {
+	public static void invokeTest(LinearHashing<Object, Object> hashing) {
 		while (true) {
-			int input = -1;
+			Object input = null;
 			int choice = UserInteraction.displayOperation();
 			switch (choice) {
 			case 1:
-				System.out.println("Enter a number to insert :");
+				System.out.println("Enter a Key to insert :");
 				input = UserInteraction.scanInput();
-				hashing.insert(input, input);
+				if(Integer.class.equals(input.getClass())){
+					hashing.insert(input, input);
+				} else {
+					System.out.println("Enter a Value to insert :");
+					Object value = UserInteraction.scanInput();
+					hashing.insert(input, value);
+				}
 				break;
 			case 2:
 				System.out.println("Enter a key to Delete :");
@@ -81,7 +95,7 @@ public class UserInteraction {
 				hashing.remove(input);
 				break;
 			case 3:
-				hashing.printHashValues();
+				hashing.printHash();
 				break;
 			case 4:
 				hashing.clear();
@@ -93,15 +107,21 @@ public class UserInteraction {
 		}
 	}
 	
-	public static void invokeTest(QuadraticHashing<Integer, Integer> hashing) {
+	public static void invokeTest(QuadraticHashing<Object, Object> hashing) {
 		while (true) {
-			int input = -1;
+			Object input = null;
 			int choice = UserInteraction.displayOperation();
 			switch (choice) {
 			case 1:
-				System.out.println("Enter a number to insert :");
+				System.out.println("Enter a Key to insert :");
 				input = UserInteraction.scanInput();
-				hashing.insert(input, input);
+				if(Integer.class.equals(input.getClass())){
+					hashing.insert(input, input);
+				} else {
+					System.out.println("Enter a Value to insert :");
+					Object value = UserInteraction.scanInput();
+					hashing.insert(input, value);
+				}
 				break;
 			case 2:
 				System.out.println("Enter a key to Delete :");
@@ -109,7 +129,7 @@ public class UserInteraction {
 				hashing.remove(input);
 				break;
 			case 3:
-				hashing.printHashValues();
+				hashing.printHash();
 				break;
 			case 4:
 				hashing.clear();
@@ -121,15 +141,21 @@ public class UserInteraction {
 		}
 	}
 	
-	public static void invokeTest(DoubleHashing<Integer, Integer> hashing) {
+	public static void invokeTest(DoubleHashing<Object, Object> hashing) {
 		while (true) {
-			int input = -1;
+			Object input = null;
 			int choice = UserInteraction.displayOperation();
 			switch (choice) {
 			case 1:
-				System.out.println("Enter a number to insert :");
+				System.out.println("Enter a Key to insert :"); 
 				input = UserInteraction.scanInput();
-				hashing.insert(input, input);
+				if(Integer.class.equals(input.getClass())){
+					hashing.insert(input, input);
+				} else {
+					System.out.println("Enter a Value to insert :");
+					Object value = UserInteraction.scanInput();
+					hashing.insert(input, value);
+				}
 				break;
 			case 2:
 				System.out.println("Enter a key to Delete :");
@@ -137,7 +163,7 @@ public class UserInteraction {
 				hashing.remove(input);
 				break;
 			case 3:
-				hashing.printHashValues();
+				hashing.printHash();
 				break;
 			case 4:
 				hashing.clear();
@@ -161,7 +187,7 @@ public class UserInteraction {
 		System.out.println("\t 6.Change Hashing Method");
 		System.out.println("\t 7.END");
 		System.out.println("================================");
-		int choice = scanInput();
+		int choice = (Integer) scanInput();
 		switch (choice) {
 		case 1:
 			break;

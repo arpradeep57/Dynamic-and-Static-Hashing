@@ -13,7 +13,7 @@ public class LinearHashing<K, V> extends HashBase<K, V> {
 	}
 	
 	public static void main(String args[]) {
-		LinearHashing<Integer, String> hashTable = new LinearHashing<Integer, String>(10);
+		LinearHashing<Integer, String> hashTable = new LinearHashing<Integer, String>(10000000);
 
 		long startTime = System.currentTimeMillis();
 		hashTable.insert(3, "3");
@@ -22,10 +22,10 @@ public class LinearHashing<K, V> extends HashBase<K, V> {
 		hashTable.insert(5, "5");
 		hashTable.printHash();
 
-		hashTable.insert(13, "13");
+		hashTable.insert(11113, "11113");
 		hashTable.printHash();
 
-		hashTable.insert(24, "24");
+		hashTable.insert(11114, "11114");
 		hashTable.printHash();
 
 		hashTable.insert(33, "33");
@@ -36,6 +36,11 @@ public class LinearHashing<K, V> extends HashBase<K, V> {
 
 		hashTable.insert(54, "54");
 		hashTable.printHash();
+		
+		hashTable.insert(36, "36");
+		hashTable.printHash();
+		
+		
 		long endTime = System.currentTimeMillis();
 		System.out.println(endTime - startTime);
 	}

@@ -18,7 +18,9 @@ public class DoubleHashing<K, V> extends HashBase<K, V> {
 	}
 
 	public static void main(String args[]) {
-		DoubleHashing<Integer, String> hashTable = new DoubleHashing<Integer, String>(10);
+		DoubleHashing<Integer, String> hashTable = new DoubleHashing<Integer, String>(10000000);
+
+		long startTime = System.currentTimeMillis();
 		hashTable.insert(89, "89");
 		hashTable.printHash();
 
@@ -33,7 +35,8 @@ public class DoubleHashing<K, V> extends HashBase<K, V> {
 
 		hashTable.insert(69, "69");
 		hashTable.printHash();
-
+		long endTime = System.currentTimeMillis();
+		System.out.println(endTime - startTime);
 //		hashTable.insert(45, "45");
 //		hashTable.printHash();
 //

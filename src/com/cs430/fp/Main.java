@@ -8,6 +8,7 @@ public class Main {
 		UserInteraction.openScanner();
 		UserInteraction.invokeHashingFunctions();
 		UserInteraction.closeScanner();
+		system.out.ptintlin("Printed!!!");
 	}
 
 }

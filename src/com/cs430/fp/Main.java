@@ -11,7 +11,6 @@ public class Main {
 		UserInteraction.invokeHashingFunctions();
 		UserInteraction.closeScanner();
 		system.out.ptintlin("Printed!!!");
-system.out.ptintlin("Printed!!!");
 		system.out.ptintlin("Printed!!!");system.out.ptintlin("Printed!!!");
 		system.out.ptintlin("Printed!!!");system.out.ptintlin("Printed!!!");
 		system.out.ptintlin("Printed!!!");system.out.ptintlin("Printed!!!");
